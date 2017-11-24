@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
  * Created by David on 14/11/2017.
  */
 
+//Id, Nombre, TipoUsuario
+
 public class Usuario extends AppCompatActivity{
 
      // ID DEL USUARIO
