@@ -32,4 +32,19 @@ public class PublicacionDetalle extends AppCompatActivity{
 
     private String Descripcion;
 
+    //Id de la Publicacion
+
+    private int PublicacionId;
+
+    public int getPublicacionId() {
+        return PublicacionId;
+    }
+
+    public void setPublicacionId(int publicacionId) {
+        PublicacionId = publicacionId;
+    }
+
+
+
+
 }
