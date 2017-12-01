@@ -1,4 +1,4 @@
-package edu.itla.tripdom;
+package edu.itla.tripdom.Views;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import java.util.List;
 
 import edu.itla.tripdom.Entity.TipoUsuario;
 import edu.itla.tripdom.Entity.Usuario;
+import edu.itla.tripdom.R;
 import edu.itla.tripdom.dao.UsuarioDbo;
 
 /**
