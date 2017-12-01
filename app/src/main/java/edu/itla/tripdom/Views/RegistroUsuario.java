@@ -38,7 +38,7 @@ public class RegistroUsuario extends AppCompatActivity {
         txtTipoUs= (EditText) findViewById(R.id.txtTipoUs);
         btnCancelar= (Button) findViewById(R.id.btnCancelar);
 
-        usuarioDbo= new UsuarioDbo(this );
+        usuarioDbo= new UsuarioDbo(this  );
 
         btnGuardar= (Button) findViewById(R.id.BtnGuardar);
         btnListar = (Button) findViewById(R.id.btonListar);
