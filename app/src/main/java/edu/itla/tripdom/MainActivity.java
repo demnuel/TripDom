@@ -14,26 +14,27 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText txtNombre;
+    Button btnUsuarios;
+    Button BtonPublicacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtNombre = (EditText) findViewById(R.id.TxtNombre);
-        Button BtnNombre = (Button) findViewById(R.id.BtnGuardar);
+        btnUsuarios = (Button) findViewById(R.id.btnUsuarios);
+        BtonPublicacion = (Button) findViewById(R.id.btonPublicacion);
 
 
 
-        BtnNombre.setOnClickListener(new View.OnClickListener() {
+        btnUsuarios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                // Toast mensaje = Toast.makeText(MainActivity.this, "Hola "+ txtNombre.getText(), Toast.LENGTH_LONG);
                // mensaje.show();
 
                 Intent visualizar = new Intent(MainActivity.this , Visualizar2.class);
-                visualizar.putExtra("nombre", txtNombre.getText().toString());
+                visualizar.putExtra("nombre", btnUsuarios.getText().toString());
                 startActivity(visualizar);
             }
         });

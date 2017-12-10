@@ -39,5 +39,13 @@ public class DbConnection extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+        ContentValues valores = new ContentValues();
+        valores.put("nombre", "descripcion");
+
+        db.update("Usuarios", valores, null, null);
+
+
     }
+
+
 }

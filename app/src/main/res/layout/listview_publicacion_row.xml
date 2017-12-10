@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fehca"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/txtFechaViaje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fecha del VIaje"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/txtEstado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Estado del Viaje"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/txtCosto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Costo del iaje"
+        android:textSize="24sp" />
+</LinearLayout>

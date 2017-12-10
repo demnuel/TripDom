@@ -25,8 +25,10 @@ public class RegistroUsuario extends AppCompatActivity {
     private EditText txtTipoUs;
     private Button btnGuardar;
     private Button btnCancelar;
+    private EditText txtDescripcion;
     UsuarioDbo usuarioDbo;
     private Button btnListar;
+    private  Usuario usuario;
 
     @Override
     protected void onCreate (Bundle savedInstancesState) {
@@ -34,21 +36,40 @@ public class RegistroUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_registro_usuario);
 
         txtid = (EditText) findViewById(R.id.txtId);
-        txtNombre = (EditText) findViewById(R.id.TxtNombre);
+        txtNombre = (EditText) findViewById(R.id.txtNombre);
         txtTipoUs= (EditText) findViewById(R.id.txtTipoUs);
         btnCancelar= (Button) findViewById(R.id.btnCancelar);
+        txtDescripcion = (EditText) findViewById(R.id.txtDescripcio);
 
         usuarioDbo= new UsuarioDbo(this  );
 
-        btnGuardar= (Button) findViewById(R.id.BtnGuardar);
+        btnGuardar= (Button) findViewById(R.id.btnGuardar);
         btnListar = (Button) findViewById(R.id.btonListar);
+
+        Bundle parametros= getIntent().getExtras();
+
+        if (parametros.containsKey("usuario")) {
+            usuario = (Usuario) parametros.getSerializable("usuario");
+
+            txtNombre.setText(usuario.getNombre());
+            txtDescripcion.setText(usuario.getDescripcion());
+
+
+        }
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (usuario== null) {
+                    //id = 0
+                    usuario= new Usuario();
+                }
+
                 Usuario usuario= new Usuario();
                 usuario.setNombre(txtNombre.getText().toString());
                 usuario.setTipoUsuario(TipoUsuario.valueOf(txtTipoUs.getText().toString()));
+
                // usuario.setTipoUsuario(txtTipoUs.getText().toString());
             //  cv.put("TipoUsuario", String.valueOf(usuario.getTipoUsuario()));
 

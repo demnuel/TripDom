@@ -3,13 +3,16 @@ package edu.itla.tripdom.Entity;
 import android.renderscript.ScriptIntrinsicYuvToRGB;
 import android.support.v7.app.AppCompatActivity;
 
+import java.io.Serializable;
+
+
 /**
  * Created by David on 14/11/2017.
  */
 
 //Id, Nombre, TipoUsuario
 
-public class Usuario extends AppCompatActivity{
+public class Usuario implements Serializable {
 
     // ID DEL USUARIO
     public int Id;

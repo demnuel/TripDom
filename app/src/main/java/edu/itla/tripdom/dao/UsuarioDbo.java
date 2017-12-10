@@ -42,11 +42,25 @@ public class UsuarioDbo {
 
 
             SQLiteDatabase db = connection.getWritableDatabase();
-            Long id =db.insert("usuario", null, cv);
 
-            usuario.setId(id.intValue());
+            if (usuario.getId() == 0) {
+
+                Long id = db.insert("usuario", null, cv);
+                usuario.setId(id.intValue());
+            } else {
+                db.update("usuario", cv, "id = " + usuario.getId(), null);
+            }
+
+            //Long id =db.insert("usuario", null, cv);
+
+            //usuario.setId(id.intValue());
+            // preguntar si el parametro es diferente de nulo
+            // if parametros!= null && 
 
             db.close();
+
+            return;
+
 
 
         }
