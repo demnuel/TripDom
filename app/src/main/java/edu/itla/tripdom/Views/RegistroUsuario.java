@@ -6,12 +6,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.List;
 
 import edu.itla.tripdom.Entity.TipoUsuario;
 import edu.itla.tripdom.Entity.Usuario;
 import edu.itla.tripdom.R;
+import edu.itla.tripdom.UsuarioActual;
 import edu.itla.tripdom.dao.UsuarioDbo;
 
 /**
@@ -26,10 +28,13 @@ public class RegistroUsuario extends AppCompatActivity {
     private Button btnGuardar;
     private Button btnCancelar;
     private EditText txtDescripcion;
-    UsuarioDbo usuarioDbo;
+   // UsuarioDbo usuarioDbo;
     private Button btnListar;
     private  Usuario usuario;
+    private static final String LOG_T = "RegistroUsuario";
+    private UsuarioDbo usuarioDbo;
 
+   // public  boolean guardar ()
     @Override
     protected void onCreate (Bundle savedInstancesState) {
         super.onCreate(savedInstancesState);
@@ -41,14 +46,15 @@ public class RegistroUsuario extends AppCompatActivity {
         btnCancelar= (Button) findViewById(R.id.btnCancelar);
         txtDescripcion = (EditText) findViewById(R.id.txtDescripcio);
 
-        usuarioDbo= new UsuarioDbo(this  );
+
 
         btnGuardar= (Button) findViewById(R.id.btnGuardar);
         btnListar = (Button) findViewById(R.id.btonListar);
 
         Bundle parametros= getIntent().getExtras();
 
-        if (parametros.containsKey("usuario")) {
+        if (parametros!=null && parametros.containsKey("usuario")) {
+
             usuario = (Usuario) parametros.getSerializable("usuario");
 
             txtNombre.setText(usuario.getNombre());
@@ -56,6 +62,8 @@ public class RegistroUsuario extends AppCompatActivity {
 
 
         }
+
+        usuarioDbo= new UsuarioDbo(this);
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +78,10 @@ public class RegistroUsuario extends AppCompatActivity {
                 usuario.setNombre(txtNombre.getText().toString());
                 usuario.setTipoUsuario(TipoUsuario.valueOf(txtTipoUs.getText().toString()));
 
+                Log.i(LOG_T, "Registrando Usuario : " + usuario.toString());
+                usuarioDbo.crear(usuario);
+               // usuarioDbo.guardar(usuario);
+
                // usuario.setTipoUsuario(txtTipoUs.getText().toString());
             //  cv.put("TipoUsuario", String.valueOf(usuario.getTipoUsuario()));
 
@@ -78,7 +90,7 @@ public class RegistroUsuario extends AppCompatActivity {
             }
         });
 
-        btnListar.setOnClickListener(new View.OnClickListener() {
+       /** btnListar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -86,6 +98,25 @@ public class RegistroUsuario extends AppCompatActivity {
 
                 for (Usuario u: usuarios) {
                     Log.i("ListUsuarios", u.toString());
+                }
+
+            }
+        }); **/
+
+
+        Button btnCambiar = (Button) findViewById(R.id.btonCambiar);
+
+        btnCambiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (usuario!=null && usuario.getId()> 0) {
+
+                    UsuarioActual.setUsuario(usuario);
+
+                } else {
+                 Toast.makeText(RegistroUsuario.this, "Usuario no permitido o no existe",Toast.LENGTH_LONG);
+
                 }
 
             }

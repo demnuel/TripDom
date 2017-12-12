@@ -35,15 +35,19 @@ public class Publicacion extends AppCompatActivity {
 
     // COSTO
 
-    private int Costo;
+    private Double Costo;
 
-    public int getCosto() {
+    public Double getCosto() {
         return Costo;
     }
 
-    public void setCosto(int costo) {
+    public void setCosto(Double costo) {
         Costo = costo;
     }
+
+
+
+
 
     // DESCRIPCION
     private String Descripcion;
@@ -69,15 +73,16 @@ public class Publicacion extends AppCompatActivity {
     }
 
     // USUARIO ID
-    private int Usuario_id;
+    private Usuario Usuario;
 
-    public int getUsuario_id() {
-        return Usuario_id;
+    public edu.itla.tripdom.Entity.Usuario getUsuario() {
+        return Usuario;
     }
 
-    public void setUsuario_id(int usuario_id) {
-        Usuario_id = usuario_id;
+    public void setUsuario(edu.itla.tripdom.Entity.Usuario usuario) {
+        Usuario = usuario;
     }
+
 
     // ORIGEN
 

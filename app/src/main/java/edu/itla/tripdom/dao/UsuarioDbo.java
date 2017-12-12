@@ -15,18 +15,20 @@ import edu.itla.tripdom.Entity.Usuario;
  * Created by David on 26/11/2017.
  */
 
+
 public class UsuarioDbo {
 
-    private  DbConnection connection;
+    private DbConnection connection;
 
-        public UsuarioDbo(Context context){
-            connection = new DbConnection(context);
-        }
+    public UsuarioDbo(Context context) {
+        connection = new DbConnection(context);
+    }
 
-        public void crear (Usuario usuario) {
+    public boolean crear(Usuario usuario) {
+
             //TODO: CREA TODAS LAS TABLAS DE LA BASE DE DATOS CON EL PUBLIC VOID CREAR
 
-         //   SQLiteDatabase db = connection.getWritableDatabase();
+            //   SQLiteDatabase db = connection.getWritableDatabase();
 
             ContentValues cv = new ContentValues();
             cv.put("Id", usuario.getId());
@@ -37,13 +39,13 @@ public class UsuarioDbo {
             cv.put("cupo", usuario.getCupo());
             cv.put("origen", usuario.getOrigen());
             cv.put("email", usuario.getEmail());
-          //  cv.put("TipoUsuario", usuario.getTipoUsuario());
-           // cv.put("UsuarioId", usuario.getTipoUsua);
+            //  cv.put("TipoUsuario", usuario.getTipoUsuario());
+            // cv.put("UsuarioId", usuario.getTipoUsua);
 
 
             SQLiteDatabase db = connection.getWritableDatabase();
 
-            if (usuario.getId() == 0) {
+            if (usuario.getId() <= 0) {
 
                 Long id = db.insert("usuario", null, cv);
                 usuario.setId(id.intValue());
@@ -51,26 +53,35 @@ public class UsuarioDbo {
                 db.update("usuario", cv, "id = " + usuario.getId(), null);
             }
 
-            //Long id =db.insert("usuario", null, cv);
 
-            //usuario.setId(id.intValue());
-            // preguntar si el parametro es diferente de nulo
-            // if parametros!= null && 
 
-            db.close();
 
-            return;
+                //Long id =db.insert("usuario", null, cv);
 
+                //usuario.setId(id.intValue());
+                // preguntar si el parametro es diferente de nulo
+                // if parametros!= null &&
+
+
+                db.close();
+
+
+            return true;
 
 
         }
 
-        public List<Usuario> buscar (){
+        /** public boolean guardar (Usuario usuario) {
+         ContentValues cv = new ContentValues();
+         cv.put(Usuario.);
+         } **/
+
+        public List<Usuario> buscar () {
             //LISTA DONDE SE IRAN AGREGANDO LOS USUARIOS
             List<Usuario> usuarios = new ArrayList<>();
 
             //COLUMNA A BUSCAR EN LA BASE DE DATOS
-            String columnas[] = new String[] {"id", "nombre", "email", "tipoUsuario", "cupo","estatus", "origen"};
+            String columnas[] = new String[]{"id", "nombre", "email", "tipoUsuario", "cupo", "estatus", "origen"};
 
             //ABRIR CONEXION A LA BASE DE DATOS (SOLO LECURA)
             SQLiteDatabase db = connection.getReadableDatabase();
@@ -80,7 +91,7 @@ public class UsuarioDbo {
 
             cursor.moveToFirst();
 
-            while (!cursor.isAfterLast()){
+            while (!cursor.isAfterLast()) {
 
                 Usuario u = new Usuario();
                 u.setId(cursor.getInt(cursor.getColumnIndex("id")));
@@ -101,7 +112,9 @@ public class UsuarioDbo {
             cursor.close();
             db.close();
 
-            return  usuarios;
+            return usuarios;
         }
-}
+    }
+
+
 

@@ -1,5 +1,6 @@
 package edu.itla.tripdom.dao;
 
+import android.app.DialogFragment;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -7,11 +8,16 @@ import android.database.sqlite.SQLiteAbortException;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.LinearLayout;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.function.DoubleToLongFunction;
 
 import edu.itla.tripdom.Entity.Publicacion;
 import edu.itla.tripdom.Entity.PublicacionDetalle;
+import edu.itla.tripdom.Entity.Usuario;
+import edu.itla.tripdom.Views.Listadapter.PublicacionListAdapter;
 
 /**
  * Created by David on 30/11/2017.
@@ -72,5 +78,7 @@ public class PublicacionDetalleDbo {
         return publicacionDetalles;
 
     }
+
+
 }
 

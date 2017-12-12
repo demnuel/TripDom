@@ -50,7 +50,7 @@ public class PublicacionListAdapter extends BaseAdapter {
 
         Publicacion p = publicacions.get(in); // LA VARIABLE NO ES I, DEBO DE AVERIGUAR PORQUE
 
-        lvCosto.setText(p.getCosto());
+        lvCosto.setText(Double.valueOf(p.getCosto()).toString());
         lvEstado.setText(p.getEstado());
        // lvFecha.setText(p.getFecha());
 

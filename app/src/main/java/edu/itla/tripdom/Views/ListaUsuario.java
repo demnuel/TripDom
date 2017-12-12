@@ -7,6 +7,7 @@ import android.support.v7.widget.ListViewCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.List;
@@ -49,6 +50,18 @@ public class ListaUsuario extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button btnAgregar = (Button) findViewById(R.id.btnAgregar);
+        btnAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent= new Intent( ListaUsuario.this, RegistroUsuario.class);
+                startActivity(intent);
+            }
+        });
+
+
 
     }
 }
