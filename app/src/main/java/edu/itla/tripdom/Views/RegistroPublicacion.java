@@ -60,6 +60,7 @@ public class RegistroPublicacion extends AppCompatActivity{
                 if (publicacion==null) {
 
                     publicacion= new Publicacion();
+
                 }
 
                 Publicacion publicacion = new Publicacion();

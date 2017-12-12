@@ -81,6 +81,8 @@ public class PublicacionDbo {
             cursor.moveToNext();
         }
 
+
+
         cursor.close();
         db.close();
 

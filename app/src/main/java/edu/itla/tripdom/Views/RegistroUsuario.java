@@ -116,6 +116,7 @@ public class RegistroUsuario extends AppCompatActivity {
 
                 } else {
                  Toast.makeText(RegistroUsuario.this, "Usuario no permitido o no existe",Toast.LENGTH_LONG);
+                    
 
                 }
 
